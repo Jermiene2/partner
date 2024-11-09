@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles2.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Dashboard Header -->
+    <header>
+        <h1>University of Perpetual Help - Data Dashboard</h1>
+        <p>Overview of key metrics and user interactions on the E-learning platform.</p>
+        <a href="index.html" id="back-to-main">Back to Main Page</a>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main>
+        <!-- Overview Section -->
+        <section class="overview">
+            <h2>Overview</h2>
+            <p>This dashboard presents the key performance indicators (KPIs) for the University's E-learning platform,
+                visualizing page views, user interactions, and conversion rates.</p>
+        </section>
+
+        <!-- Metrics Section -->
+        <div class="metrics">
+            <h2>Key Metrics</h2>
+            <p class="compared-to-last-month">Compared to last month (September)</p>
+            <div class="metrics-box">
+                <div class="metric-box">
+                    <h3>Page Views</h3>
+                    <p>50,000 <span class="percentage-change positive">(+3.1%)</span></p>
+                </div>
+                <div class="metric-box">
+                    <h3>User Interactions</h3>
+                    <p>12,000 <span class="percentage-change positive">(+1.7%)</span></p>
+                </div>
+                <div class="metric-box">
+                    <h3>Conversion Rate</h3>
+                    <p>2.5% <span class="percentage-change negative">(-0.2%)</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Visualization Section -->
+        <section class="visualization">
+            <h2>Data Visualizations</h2>
+            <div class="charts-wrapper">
+                <div class="chart-container">
+                    <canvas id="pageViewsChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="userInteractionsChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 University of Perpetual Help</p>
+    </footer>
+
+    <!-- JavaScript for Chart Data -->
+    <script>
+        const pageViewsData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'],
+            datasets: [{
+                label: 'Page Views',
+                data: [48500, 50000, 51000, 53000, 54000, 55000, 57000, 59000, 48500, 50000], // Corrected data
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        const userInteractionsData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October'],
+            datasets: [{
+                label: 'User Interactions',
+                data: [11800, 12000, 12300, 12600, 12900, 13200, 13500, 13800, 11800, 12000], // Corrected data
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        new Chart(document.getElementById('pageViewsChart'), {
+            type: 'bar',
+            data: pageViewsData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('userInteractionsChart'), {
+            type: 'line',
+            data: userInteractionsData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
